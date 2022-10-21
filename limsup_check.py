@@ -4,15 +4,14 @@ import matplotlib.pyplot as plt
 
 import math
 
-from src.limsup import *
-from src.simple_random_walk import *
-
+from src.limsup import limsup
+from src.simple_random_walk import simple_random_walk
 
 #  パラメータを設定する
 ## 試行回数
-n = 1000
+n = 100000
 ## サンプルパスの本数
-m = 50
+m = 100
 p = 1/2
 q = 1 - p
 values = [1, 0]
@@ -33,7 +32,7 @@ for _ in range(m):
     zs.insert(0, 0)
     ws = simple_random_walk(n, p, q, values)
     ws.insert(0, 0)
-    plt.plot(zs, ws, label="s_walk", color="red")
+    plt.plot(zs, ws, label="s_walk", color="red",lw=0.1)
 
 # グラフを描画する
 plt.title("limsup_with_simple_random_walk")
