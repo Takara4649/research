@@ -13,7 +13,7 @@ def inside_circle(n: int, eps: float):
     Returns: 内側の円
     """
 
-    return patches.Circle((0,0), math.sqrt((2-eps)*n*math.log(math.log(n))), edgecolor="red", lw=0.1)
+    return patches.Circle((0,0), math.sqrt((2-eps)*n*math.log(math.log(n))), edgecolor="blue", facecolor="white",lw=1.0)
 
 
 def outside_circle(n: int, eps: float):
@@ -26,4 +26,4 @@ def outside_circle(n: int, eps: float):
     Returns: 外側の円
     """
 
-    return patches.Circle((0,0), math.sqrt((2+eps)*n*math.log(math.log(n))), edgecolor="red",lw=0.1)
+    return patches.Circle((0,0), math.sqrt((2+eps)*n*math.log(math.log(n))), edgecolor="red",facecolor="white",lw=1.0)
