@@ -1,17 +1,15 @@
-# √2npqlog(log(n)) - |S_n - np| > 0 になる確率が1に近づくことを確認する
+# 1次元ランダムウォークの最終値の絶対値が上極限を越える回数を求める
 # 必要なモジュールをインポートする
 import matplotlib.pyplot as plt
 
-import math
-
 from src.limsup import limsup
-from src.simple_random_walk import simple_random_walk
+from src.simple_random_walk_value import simple_random_walk_value
 
 
 #  パラメータを設定する
 ## 試行回数
-k = 10
-ns = [pow(4, i) for i in range(1, k)]
+k = 7
+ns = [pow(10, i) for i in range(1, k)]
 ## サンプルパスの本数
 m = 100
 p = 1/2
@@ -24,16 +22,15 @@ cnts = []
 for n in ns:
     cnt = 0
     for _ in range(m):
-        srw = simple_random_walk(n, p, q, values)
-        if srw[-1] >= limsup(n, p, q):
+        srw = simple_random_walk_value(n, p, q, values)
+        if abs(srw) >= limsup(n, p, q):
             cnt += 1
     cnts.append(cnt)
 
-
 # グラフを描画する
-plt.title("count_outside_paths")
+plt.title(f"count_outside_paths (k = {k})")
 plt.xticks(range(1, k))
 plt.plot(range(1, k), cnts, color="blue")
-print("done :)")
-plt.savefig("img/count_outside_paths.png")
+plt.savefig(f"img/count_outside_paths_{k}.png")
+plt.grid()
 plt.show()
