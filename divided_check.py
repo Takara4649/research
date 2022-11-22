@@ -11,9 +11,9 @@ from src.simple_random_walk_divided import simple_random_walk_divided
 
 #  パラメータを設定する
 ## 試行回数
-n = 10000
+n = 100000
 ## サンプルパスの本数
-m = 50
+m = 100
 p = 1/2
 q = 1 - p
 values = [1, 0]
@@ -32,7 +32,7 @@ for _ in range(m):
     zs.insert(0, 0)
     ws = simple_random_walk_divided(n, p, q, values)
     ws.insert(0, 0)
-    plt.plot(zs, ws, label="s_walk", color="red",lw=0.1)
+    plt.plot(zs, ws, label="s_walk", color="red",lw=0.01)
 
 # グラフを描画する
 plt.title("simple_random_walk_divided")

@@ -8,8 +8,8 @@ from src.simple_random_walk_value import simple_random_walk_value
 
 #  パラメータを設定する
 ## 試行回数
-k = 7
-ns = [pow(10, i) for i in range(1, k)]
+a = 7
+ns = [pow(10, i) for i in range(1, a)]
 ## サンプルパスの本数
 m = 100
 p = 1/2
@@ -28,9 +28,9 @@ for n in ns:
     cnts.append(cnt)
 
 # グラフを描画する
-plt.title(f"count_outside_paths (k = {k})")
-plt.xticks(range(1, k))
-plt.plot(range(1, k), cnts, color="blue")
-plt.savefig(f"img/count_outside_paths_{k}.png")
+plt.title(f"count_outside_paths (k = {a-1})")
+plt.xticks(range(1, a))
+plt.plot(range(1, a), cnts, color="blue")
+plt.savefig(f"img/count_outside_paths_{a}.png")
 plt.grid()
 plt.show()
